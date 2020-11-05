@@ -1,8 +1,8 @@
-version: "3.7"
+version: "3.3"
 
 services:
   docky-onion:
-    image: useto/docky-onion
+    build: .
     restart: always
     environment:
       # this forwards 80 and 8080 to web:80
