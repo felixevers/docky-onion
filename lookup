@@ -1,0 +1,11 @@
+#!/bin/sh
+
+for dir in /var/lib/tor/hidden_services/*/     # list directories in the form "/tmp/dirname/"
+do
+    dir=${dir%*/}
+    file=$dir/hostname
+
+    if [ -f "$file" ]; then
+    	echo "${dir##*/} => $(cat $file)"
+    fi
+done

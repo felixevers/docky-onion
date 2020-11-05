@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  tor:
+    build: .
+    restart: always
+    environment:
+      TOR_HIDDEN_SERVICE_WEB: "80 web:80;8080 web:80"
+    volumes:
+      - "tor:/var/lib/tor/hidden_services"
+    depends_on:
+      - web
+
+  web:
+    image: nginx
+    restart: always
+
+volumes:
+  tor:

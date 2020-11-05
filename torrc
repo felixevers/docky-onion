@@ -1,0 +1,3 @@
+Log notice file /var/log/tor/notices.log
+DataDirectory /var/lib/tor
+%include /etc/torrc.d/
