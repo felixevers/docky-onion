@@ -30,6 +30,6 @@ volumes:
 
 After you have started the container you can read the `.onion`-addresses as follows:
 
-`$ docker-compose exec tor lookup `
+`$ docker-compose exec tor lookup`  
 `WEB => j3c7wmyv6b3q3uvowetwwygb7h57k2bjhtnwp2zfamda2ij2vanyhmid.onion`
 
