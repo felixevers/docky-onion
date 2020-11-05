@@ -1,13 +1,14 @@
 version: "3.7"
 
 services:
-  tor:
-    build: .
+  docky-onion:
+    image: useto/docky-onion
     restart: always
     environment:
+      # this forwards 80 and 8080 to web:80
       TOR_HIDDEN_SERVICE_WEB: "80 web:80;8080 web:80"
     volumes:
-      - "tor:/var/lib/tor/hidden_services"
+      - "docky-onion:/var/lib/tor/hidden_services"
     depends_on:
       - web
 
@@ -16,4 +17,4 @@ services:
     restart: always
 
 volumes:
-  tor:
+  docky-onion:

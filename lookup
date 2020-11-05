@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for dir in /var/lib/tor/hidden_services/*/     # list directories in the form "/tmp/dirname/"
+for dir in /var/lib/tor/hidden_services/*/
 do
     dir=${dir%*/}
     file=$dir/hostname
