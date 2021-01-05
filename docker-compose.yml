@@ -7,14 +7,23 @@ services:
     environment:
       # this forwards 80 and 8080 to web:80
       TOR_HIDDEN_SERVICE_WEB: "80 web:80;8080 web:80"
+
+      # this forwards only 6667 irc:6667
+      TOR_HIDDEN_SERVICE_IRC: "6667 irc:6667"
     volumes:
       - "docky-onion:/var/lib/tor/hidden_services"
-    depends_on:
-      - web
 
   web:
     image: nginx
     restart: always
+    depends_on:
+      - docky-onion
+
+  irc:
+    image: inspircd/inspircd-docker
+    restart: always
+    depends_on:
+      - docky-onion
 
 volumes:
   docky-onion:
